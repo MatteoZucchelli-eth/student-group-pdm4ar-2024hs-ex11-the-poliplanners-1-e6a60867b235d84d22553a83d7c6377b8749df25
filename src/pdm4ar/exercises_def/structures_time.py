@@ -9,7 +9,6 @@ from pdm4ar.exercises_def.structures_memory import set_memory_limit, MemoryLimit
 
 class TestCaseTimeoutException(Exception):
     """Exception raised when a test case exceeds the specified timeout."""
-
     pass
 
 
@@ -60,7 +59,7 @@ def run_with_timer(func, max_execution_time: float) -> Union[Any, Exception]:
             result = recv_end.recv()
         else:
             result = TestCaseTimeoutException("Exceeded test case timeout.")
-
+        
         p.join(max_execution_time)
 
         if p.is_alive():
